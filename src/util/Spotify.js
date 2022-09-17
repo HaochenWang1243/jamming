@@ -4,7 +4,7 @@ let accessToken;
 export const Spotify={
     getAccessToken(){
         //already have access,just return it
-        if(accessToken)return accessToken;
+        if(accessToken)return;
         //no access token yet, assuming request already made, try to extract the access token from the response 
         let accessTokenMatch=window.location.href.match('access_token=([^&]*)')
         let expireTimeMatch= window.location.href.match('expires_in=([^&]*)')      
@@ -14,7 +14,7 @@ export const Spotify={
             const expireTime=Number(expireTimeMatch[1])
             setTimeout(()=>{accessToken=''},expireTime*1000)
             window.history.pushState('Access Token',null,'/')
-            return accessToken
+            
         }
         else{
             //request not made yet or user denies access, set the web page to request page
@@ -25,8 +25,8 @@ export const Spotify={
     },
     search(term){
         const searchRequest=`https://api.spotify.com/v1/search?type=track&q=${term}`
-        const token=Spotify.getAccessToken()
-        return fetch(searchRequest,{headers:{Authorization:`Bearer ${token}`}})
+        Spotify.getAccessToken()
+        return fetch(searchRequest,{headers:{Authorization:`Bearer ${accessToken}`}})
         .then(response=>response.json())
         .then(jsonResponse=>{
             if(jsonResponse){
@@ -47,7 +47,7 @@ export const Spotify={
     },
     savePlaylist(listName,URLs){
         if(listName&&URLs){
-            const accessToken=Spotify.getAccessToken();
+            Spotify.getAccessToken();
             const headers={Authorization:`Bearer ${accessToken}`}
             let userID
             return fetch('https://api.spotify.com/v1/me',{headers:headers})
