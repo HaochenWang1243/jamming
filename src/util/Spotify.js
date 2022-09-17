@@ -1,5 +1,5 @@
 const clientID='030d9cbb0da24b029a26892937e0daa8'
-const redirectURI='https://zingy-pothos-dc7765.netlify.app'
+const redirectURI='https://6325e10c9c51cc5fa6f77121--poetic-nougat-ca8096.netlify.app/'
 let accessToken;
 export const Spotify={
     getAccessToken(){
