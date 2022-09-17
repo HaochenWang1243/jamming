@@ -8,17 +8,9 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      // SearchResults:
-      // [{name:'cyka blyat', artist:'Rus', album:'1',id:'1'},
-      //  {name:'秦心阳炎', artist:'stack', album:'1',id:'2'}],
-      // PlaylistName:'二次元',
-      // PlaylistTracks:
-      // [{name:'Clock Tower', artist:'幻刃网络', album:'2',id:'3'},
-      //  {name:'Used To Be', artist:'Rayark', album:'2',id:'4'}]
       SearchResults:[],
       PlaylistName:'New Playlist',
       PlaylistTracks:[]
-
     };
     this.addTrack=this.addTrack.bind(this)
     this.removeTrack=this.removeTrack.bind(this)
@@ -56,6 +48,7 @@ class App extends React.Component{
   render(){
     return (
       <div>
+        {Spotify.getAccessToken()}
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
           <SearchBar onSearch={this.search}/>
