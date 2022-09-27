@@ -1,4 +1,5 @@
 **This project is a modified version of [Jamming](https://github.com/connorads/jamming).**  
+
 This app, with the help of Spotify API, allows you to easily search for songs and quickly create your new playlist and save it to your Spotify account.  
 
 One new feature of this app different from Jamming is that the users can view the covers of the songs and "preview" a 30 seconds segment of any sound track.  
