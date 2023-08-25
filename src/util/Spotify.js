@@ -1,5 +1,7 @@
 const clientID='030d9cbb0da24b029a26892937e0daa8'
 const redirectURI='https://react-spotify-playlist-maker.netlify.app'
+// const redirectURI='https://localhost:3000/'
+
 let accessToken;
 export const Spotify={
     getAccessToken(){
