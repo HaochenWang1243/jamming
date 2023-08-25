@@ -1,5 +1,5 @@
 const clientID='030d9cbb0da24b029a26892937e0daa8'
-const redirectURI='https://haochenwang.netlify.app'
+const redirectURI='react-spotify-playlist-maker.netlify.app'
 let accessToken;
 export const Spotify={
     getAccessToken(){
